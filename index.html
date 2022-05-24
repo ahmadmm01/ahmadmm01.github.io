@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        html {
+            font-family: 'Varela Round', sans-serif;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0)), url(bg.jpg);
+            background-size: cover;
+        }
+        input{
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10%;font-family: 'Varela Round', sans-serif;font-weight: bold;
+        }
+        textarea{
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5%;
+            border-radius: 10%;font-family: 'Varela Round', sans-serif;font-weight: bold;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Assignment Survey</title>
+</head>
+
+<body>
+    <h1>Group Assignment Survey</h1>
+    <br>
+    <form action="#" class="container">
+        <label for="nim">NIM</label>
+        <input type="text" name="nim" id="nim" />
+        <br><br><br>
+
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+        <br><br><br>
+
+        <label for="class">Class</label>
+        <br><br>
+        <input type="radio" name="class" id="class" value="A" />A
+        <input type="radio" name="class" id="class" value="B" />B
+        <input type="radio" name="class" id="class" value="C" />C
+        <input type="radio" name="class" id="class" value="D" />D
+        <br><br><br>
+
+        <label for="gname">Group Name</label>
+        <input type="text" name="gname" id="gname" />
+        <br><br><br>
+
+        <label for="stopic">Selected Topic</label>
+        <br><br>
+        <input type="checkbox" name="stopic" id="stopic" value="Networking" /> Networking
+        <br><br>
+        <input type="checkbox" name="stopic" id="stopic" value="Programming" /> Programming
+        <br><br>
+        <input type="checkbox" name="stopic" id="stopic" value="Data Science" /> Data Science
+        <br><br>
+        <input type="checkbox" name="stopic" id="stopic" value="UI/UX Designer" /> UI/UX Designer
+        <br><br><br>
+
+        <label for="ttitle">Topic Title</label>
+        <br><br>
+        <textarea name="ttitle" id="ttitle" cols="33" rows="3"></textarea>
+        <br><br><br>
+
+        <input type="button" value="Submit" onclick="displayData()" />
+    </form>
+</body>
+
+</html>
+<Script>
+    function displayData() {
+        var Nim = document.getElementById("nim").value;
+        var Name = document.getElementById("name").value;
+        var Class = document.querySelector("input[name=class]:checked").value;
+        var Gname = document.getElementById("gname").value;
+        var Stopic = document.getElementsByName("stopic");
+        var TopicList = '';
+        for (var Stopic2 of Stopic) {
+            if (Stopic2.checked) {
+                TopicList += ', ' + Stopic2.value;
+            }
+        }
+        TopicList = TopicList.substring(1);
+        var Ttitle = document.getElementById("ttitle").value;
+
+        alert(
+            "NIM : " + Nim +
+            "\nName : " + Name +
+            "\nClass : " + Class +
+            "\nGroup Name : " + Gname +
+            "\nSelected Topic : " + TopicList +
+            "\nTopic Title : " + Ttitle
+        );
+    }
+</Script>
